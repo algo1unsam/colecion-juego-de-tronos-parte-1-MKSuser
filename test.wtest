@@ -11,7 +11,7 @@ test "encontrar artefactos" {
 }
 
 test "castillo" {
-
+	
 	daenerys.encontrar(espada)
 	daenerys.encontrar(libro)
 	daenerys.volverACasa()
@@ -19,7 +19,7 @@ test "castillo" {
  	daenerys.volverACasa()
  	
  	assert.that(daenerys.artefactos().isEmpty())
- 	assert.equals(#{espada,libro,collar}, castillo.artefactos())
+ 	assert.equals(#{espada,libro,collar}, castillo.artefactos2())
  	
 }
 
