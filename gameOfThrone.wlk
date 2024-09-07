@@ -1,26 +1,51 @@
 object daenerys{
-    const total = 2
-    const property artefactos = []
-    var conteo = 0
+    const property artefactos = #{}
+    var capacidad = 2
+    const property historia = []
 
     method encontrar(cosa){
+        
+        self.bitacora(cosa)
 
-        conteo += 1
-        if (conteo <= total) {
-            artefactos.add(cosa)
-        }
+        if (artefactos.size() < capacidad)
+          artefactos.add(cosa)
     }
 
-    method volverACasa(){
-
-        artefactos.forEach({n => castillo.artefactos.add(n)})
+    method limpiar(){
         artefactos.clear()
-        conteo = 0
+
+    }
+    method volverACasa(){
+        castillo.dejarArtefactos()
+
+    }
+    method posesiones() {
+        return self.artefactos() + castillo.artefactos() 
+    }
+    
+    //method posee(artefacto) = self.posesiones().contains(artefacto)
+    method posee(cosita) { 
+        return artefactos.all({n => n == cosita})
+    }
+
+    method bitacora(cosas){
+        historia.add(cosas)
     }
 }
 object castillo{
-    const property artefactos = []
+    const property artefactos = #{}
 
+    method dejarArtefactos(){
+        daenerys.artefactos().forEach({ n => artefactos.add(n)})
+        artefactos.addAll(daenerys.artefactos())
+        daenerys.limpiar()
+
+        return 0
+    }
+
+    method agregarArtefactos(cosas){
+        cosas.forEach({ n => artefactos.add(n)})
+    }
 }
 object espada{
     

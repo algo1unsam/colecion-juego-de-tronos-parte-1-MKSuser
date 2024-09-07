@@ -19,7 +19,7 @@ test "castillo" {
  	daenerys.volverACasa()
  	
  	assert.that(daenerys.artefactos().isEmpty())
- 	assert.equals(#{espada,libro,collar}, castillo.artefactos2())
+ 	assert.equals(#{espada,libro,collar}, castillo.artefactos())
  	
 }
 
